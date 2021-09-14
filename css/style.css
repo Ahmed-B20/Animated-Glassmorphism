@@ -1,0 +1,775 @@
+/* start include font */
+@font-face {
+  font-family: Poppins;
+  src: url(../google-font/Poppins/Poppins-Regular.ttf);
+}
+/* end include font */
+
+/* start global */
+:root {
+  --black: #130f40;
+  --white: #fff;
+  --gradient: linear-gradient(darkviolet, deeppink);
+  --background: rgba(255, 255, 255, 0.1);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --border: 0.1rem solid rgba(255, 255, 255, 0.1);
+  --border-top: 0.1rem solid rgba(255, 255, 255, 0.3);
+  --border-left: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--gradient);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 5rem;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 3.5rem;
+}
+
+.heading span {
+  background: var(--background);
+  border-radius: 0.5rem;
+  border: var(--border);
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  font-size: 4rem;
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  transition: 0.2s linear;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  padding: 0.8rem 3rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn::before {
+  position: absolute;
+  content: "";
+  /* background-image: linear-gradient(to left, darkviolet, deeppink); */
+  background-color: darkviolet;
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.2s ease-out;
+}
+
+.btn:hover::before {
+  width: 100%;
+  left: 0;
+}
+/* end global */
+
+/* start background */
+.gradient-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradient);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.gradient-background .animated-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  display: block;
+  pointer-events: none;
+  border-radius: 0.5rem;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(-200%) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translateY(-500%) rotate(360deg);
+  }
+}
+/* end background */
+
+/* satrt header */
+header {
+  position: fixed;
+  top: 1.5rem;
+  left: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  border-radius: 0.5rem;
+  border: var(--border);
+  right: 3rem;
+  background-color: var(--background);
+  z-index: 10000;
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  backdrop-filter: blur(0.4rem);
+}
+
+header .logo {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+header .logo i {
+  color: var(--black);
+}
+
+header nav a {
+  margin: 0 0.5rem;
+  font-size: 1.7rem;
+  color: var(--white);
+}
+
+header nav a:hover,
+header nav a.active,
+header #menu-btn:hover {
+  color: var(--black);
+}
+
+header #menu-btn {
+  font-size: 2.5rem;
+  cursor: pointer;
+  display: none;
+}
+/* end header */
+
+/* start home */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 7rem 2rem;
+}
+
+.home .content {
+  width: 75rem;
+  text-align: center;
+}
+
+.home .content h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.8;
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.home .content p {
+  font-weight: 300;
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+/* end home */
+
+/* start work */
+.work .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+.work .row .video {
+  flex: 1 1 70rem;
+  position: relative;
+  border-radius: 0.5rem;
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 50rem;
+}
+
+.work .row .video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.work .row .video .info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work .row .video .info .cont {
+  width: 50%;
+  text-align: center;
+  color: var(--white);
+}
+
+.work .row .video .info .cont span {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+
+.work .row .video .info .cont h3 {
+  margin: 1rem 0;
+  font-size: 3rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.work .row .video .info .cont p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  font-weight: lighter;
+}
+
+.work .row .video .info .cont h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.work .row .boxs {
+  flex: 1 1 30rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.work .row .boxs .box {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: 0.1rem solid var(--gradient);
+  background-color: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.work .row .boxs .box .info {
+  padding: 0 2rem;
+}
+
+.work .row .boxs .box .info span:first-of-type {
+  color: deeppink;
+  font-size: 1.5rem;
+}
+
+.work .row .boxs .box .info h3 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.work .row .boxs .box .info span:last-child {
+  font-size: 1.2rem;
+}
+/* end work */
+
+/* start courses */
+.courses .box-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.courses .box-container .box {
+  flex: 1 1 33rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  background-color: var(--background);
+  text-align: center;
+  padding: 2rem;
+  backdrop-filter: blur(0.4rem);
+}
+
+.courses .box-container .box img {
+  height: 20rem;
+}
+
+.courses .box-container .box h3 {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.courses .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--white);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+.courses .box-container .box .icons {
+  border-top: var(--border-top);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.courses .box-container .box .icons a {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.courses .box-container .box .icons a:hover {
+  color: var(--black);
+}
+
+.courses .box-container .box .icons a i {
+  padding-right: 0.5rem;
+}
+/* end courses */
+
+/* start teachers */
+.teachers .box-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.teachers .box-container .box {
+  flex: 1 1 33rem;
+  text-align: center;
+  background: var(--background);
+  border-radius: 0.5rem;
+  border: var(--border);
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  backdrop-filter: blur(0.4rem);
+}
+
+.teachers .box-container .box img {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.teachers .box-container .box h3 {
+  font-size: 2.2rem;
+  color: var(--white);
+  padding: 0.5rem 0;
+}
+
+.teachers .box-container .box span {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.teachers .box-container .box .share {
+  padding-top: 1rem;
+}
+
+.teachers .box-container .box .share a {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  background: var(--background);
+  box-shadow: var(--box-shadow);
+  color: var(--white);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}
+
+.teachers .box-container .box .share a:hover {
+  background: var(--black);
+}
+/* end teachers */
+
+/* start plan */
+.plan .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.plan .box-container .box {
+  text-align: center;
+  background: var(--background);
+  border-radius: 0.5rem;
+  border: var(--border);
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  padding: 2rem 0;
+  backdrop-filter: blur(0.4rem);
+}
+
+.plan .box-container .box i {
+  color: var(--white);
+  font-size: 7rem;
+  padding: 1rem 0;
+}
+
+.plan .box-container .box .fa-plane {
+  transform: rotate(-45deg);
+}
+
+.plan .box-container .box h3 {
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  margin-top: 2rem;
+  color: var(--black);
+}
+
+.plan .box-container .box ul {
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.plan .box-container .box ul li {
+  padding: 1rem 0;
+  color: var(--white);
+  font-size: 1.6rem;
+}
+
+.plan .box-container .box a {
+  display: block;
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  margin-top: 2rem;
+  color: var(--black);
+  transition: 0.2s linear;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.plan .box-container .box a::before {
+  position: absolute;
+  content: "";
+  background-color: darkviolet;
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.2s ease-out;
+}
+
+.plan .box-container .box a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.plan .box-container .box .price {
+  font-size: 6rem;
+  padding-top: 1rem;
+  font-weight: bolder;
+  color: var(--white);
+}
+
+.plan .box-container .box .price span {
+  font-size: 3rem;
+  font-weight: normal;
+}
+/* end plan */
+
+/* start review */
+.review .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.review .box-container .box {
+  text-align: center;
+  background: var(--background);
+  border-radius: 0.5rem;
+  border: var(--border);
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  backdrop-filter: blur(0.4rem);
+}
+
+.review .box-container .box .image {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review .box-container .box .image i {
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.review .box-container .box .image img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review .box-container .box h3 {
+  padding-top: 0.5rem;
+  font-size: 2.2rem;
+  color: var(--white);
+}
+
+.review .box-container .box span {
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+.review .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+.review .box-container .box .stars {
+  padding-top: 0.5rem;
+}
+
+.review .box-container .box .stars i {
+  font-size: 1.7rem;
+  color: var(--black);
+}
+/* end review */
+
+/* start contact */
+.contact form {
+  max-width: 60rem;
+  margin: 1rem auto;
+  text-align: center;
+  background: var(--background);
+  border-radius: 0.5rem;
+  border: var(--border);
+  border-top: var(--border-top);
+  border-left: var(--border-left);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  backdrop-filter: blur(0.4rem);
+}
+
+.contact form .box {
+  width: 100%;
+  background: var(--background);
+  border-radius: 0.5rem;
+  margin: 0.7rem 0;
+  box-shadow: var(--box-shadow);
+  padding: 1rem 1.2rem;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-transform: none;
+  font-weight: 300;
+}
+
+.contact form .box::placeholder {
+  color: #eee;
+  text-transform: capitalize;
+}
+
+.contact form textarea {
+  height: 15rem;
+  resize: none;
+}
+/* end contact */
+
+/* start footer */
+footer {
+  text-align: center;
+}
+
+footer .share {
+  padding: 1rem 0;
+}
+
+footer .share a {
+  margin: 0 1rem;
+  font-size: 4rem;
+  color: var(--white);
+}
+
+footer .share a:hover {
+  color: var(--black);
+}
+
+footer .credit {
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: var(--white);
+}
+
+footer .credit span {
+  color: var(--black);
+}
+/* end footer */
+
+/* start media */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .work .row .video {
+    flex: 1 1 100rem;
+  }
+
+  .work .row .boxs {
+    flex: 1 1 100rem;
+    flex-flow: row;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header #menu-btn {
+    display: initial;
+    transition: 0.2s linear;
+  }
+
+  #menu-btn.fa-times {
+    transform: rotate(180deg);
+  }
+
+  header .nav {
+    position: absolute;
+    top: 115%;
+    left: 0;
+    right: 0;
+    background: var(--gradient);
+    border-radius: 0.5rem;
+    transition: 0.3s linear;
+    box-shadow: var(--box-shadow);
+    padding: 0.5rem 1.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .nav.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .nav a {
+    font-size: 2rem;
+    display: block;
+    background: var(--background);
+    border-radius: 0.5rem;
+    margin: 1.2rem 0;
+    padding: 1.5rem;
+    border: var(--border);
+    border-top: var(--border-top);
+    border-left: var(--border-left);
+    box-shadow: var(--box-shadow);
+  }
+
+  .home .content h1 {
+    font-size: 3.5rem;
+  }
+
+  .home .content p {
+    font-size: 1.6rem;
+  }
+
+  .work .row .boxs {
+    flex: 1 1 100rem;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .heading span {
+    font-size: 3rem;
+  }
+
+  .work .row .boxs {
+    flex: 1 1 100rem;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
